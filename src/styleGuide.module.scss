@@ -1,3 +1,30 @@
+@mixin themes {
+  #theme-default {
+    --color-primary-copy: hsl(182, 75%, 25%);
+    --color-primary-lum-n5-copy: hsl(182, 75%, 20%);
+    --color-primary-lum-p5-copy: hsl(182, 75%, 30%);
+
+    --color-contrast-copy: hsl(0, 0%, 95%);
+    --color-contrast-lum-n5-copy: hsl(0, 0%, 90%);
+    --color-contrast-lum-p5-copy:  hsl(0, 0%, 100%);
+
+    --color-primary: var(--color-primary-copy);
+    --color-primary-lum-n5: var(--color-primary-lum-n5-copy);
+    --color-primary-lum-p5: var(--color-primary-lum-p5-copy);
+    --color-contrast: var(--color-contrast-copy);
+    --color-contrast-lum-n5: var(--color-contrast-lum-n5-copy);
+    --color-contrast-lum-p5: var(--color-contrast-lum-p5-copy);
+  }
+}
+@mixin switchContrast {
+  --color-primary: var(--color-contrast-copy);
+  --color-primary-lum-n5: var(--color-contrast-lum-n5-copy);
+  --color-primary-lum-p5: var(--color-contrast-lum-p5-copy);
+
+  --color-contrast: var(--color-primary-copy);
+  --color-contrast-lum-n5: var(--color-primary-lum-n5-copy);
+  --color-contrast-lum-p5: var(--color-primary-lum-p5-copy);
+}
 @mixin styleGuide {
   --font-size-base: 16px;
 }
