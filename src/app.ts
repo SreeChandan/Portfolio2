@@ -108,12 +108,28 @@ export default defineComponent({
         ]
       ),
       titledContent(
-        "Projects Showcase",
+        "Projects Showcase: Vue3",
         h("section" as DOM_TAG, [
-          projectShowcaseCard(imagePaths.projectTictactoe, "Tictactoe"),
-          projectShowcaseCard(imagePaths.projectConnect4, "Connect4"),
-          projectShowcaseCard(imagePaths.projectCalculator, "Calculator"),
-          projectShowcaseCard(imagePaths.project2048Game, "2048 Game"),
+          projectShowcaseCard(
+            imagePaths.projectTictactoe,
+            "Tictactoe",
+            "It only has been a month since vue 3 was released. I wanted to learn it. So this is a simple implementation of tictactoe. No computer AI. Only player vs player."
+          ),
+          projectShowcaseCard(
+            imagePaths.projectConnect4,
+            "Connect4",
+            "tictactoe was too simple to use composition API so I was in search of a bit more complex tasks. So this is a simple implementation of Connect4. No computer AI. Only player vs player."
+          ),
+          projectShowcaseCard(
+            imagePaths.projectCalculator,
+            "Calculator",
+            "At this point I wanted to get better at css a bit and learn css animations for hover effects. Also I had to figure out how to show ascii characters in web for that backspace button. That was something."
+          ),
+          projectShowcaseCard(
+            imagePaths.project2048Game,
+            "2048 Game",
+            "Its a 2048 game."
+          ),
         ]),
         { section: ["projects-showcase"] }
       ),
@@ -165,6 +181,10 @@ export default defineComponent({
       ),
     ];
     return () =>
-      h("div", { id: "theme-default", class: "theme-handler" }, sections);
+      h(
+        "div" as DOM_TAG,
+        { id: "theme-default", class: ["layout-handler"] },
+        h("div", { class: "app-content" }, sections)
+      );
   },
 });

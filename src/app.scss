@@ -1,20 +1,48 @@
 @use './styleGuide.module.scss' as *;
 
+html {
+  //height: max(100vh, 100%);
+  min-height: fit-content;
+  max-height: 100vh;
+}
 body {
   @include themes;
+  height: max(100vh, 100%);
+  min-height: fit-content;
+  max-height: 100vh;
 }
 #app {
   //layout
   position: relative;
+  //min-height: 100%;
+  height: max(100vh, 100%);
 
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   @include styleGuide;
-  .theme-handler {
+  .layout-handler {
+    height: max(100vh, 100%);
+    display: grid;
+    //align-items: center;
+    justify-items: center;
+
+    background-color: var(--color-primary);
+  }
+  .app-content {
+    width: min(100vw, 1207px);
+
+    box-shadow: 0px 0px 15px 5px var(--color-primary-lum-n5);
+
     & > .bio {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+
       .img-container {
         --img-size: 150px;
         --ratio: 1;
@@ -26,8 +54,14 @@ body {
       background-color: var(--color-contrast);
       color: var(--color-primary);
       width: 100%;
+      padding: 10px;
       padding-top: 20px;
       padding-bottom: 20px;
+
+      border: 1px solid var(--color-primary-lum-n5);
+      box-sizing: border-box;
+      border-radius: 10px;
+      overflow: hidden;
     }
     & > section:nth-child(2n) {
       @include switchContrast;
@@ -35,19 +69,14 @@ body {
       color: var(--color-primary);
     }
     .projects-showcase {
-      //overflow-x: scroll;
-      //width: 100%;
       & > .content {
         padding-left: 0px;
-        /*&::-webkit-scrollbar {
-            //background-color: var(--color-primary-lum-p5);
-            height: 10px;
-            background: transparent;
-          }*/
       }
 
       .project-showcase-card {
         border-radius: 5px;
+        --card-width: 280px;
+        align-self: baseline;
 
         background-color: var(--color-contrast-lum-p5);
         color: var(--color-primary);
@@ -55,11 +84,12 @@ body {
           border-radius: inherit;
         }
         & > .img-container {
-          --img-size: 280px;
+          --img-size: var(--card-width);
           --ratio: 1;
         }
         & > .titledContent {
           background-color: var(--color-contrast-lum-n5);
+          width: var(--card-width);
         }
       }
     }
@@ -196,6 +226,7 @@ body {
     background-color: red;
   }
 }
-a, button {
+a,
+button {
   cursor: pointer;
 }
