@@ -1,4 +1,4 @@
-# portfolio2
+# portfolio2: https://sreechandan.github.io/Portfolio2/
 
 ## Project setup
 ```
